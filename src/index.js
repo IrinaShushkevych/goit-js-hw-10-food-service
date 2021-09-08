@@ -15,6 +15,7 @@ const menuMarkup = menu.map((el) => menuTpl(el)).join('')
 menuEl.innerHTML = menuMarkup
 
 let themePage = Theme[localStorage.getItem('theme')]
+console.log(localStorage.getItem('theme'))
 console.log(themePage)
 if (themePage) {
   body.classList.add(Theme[localStorage.getItem('theme')])
