@@ -10,13 +10,8 @@ const menuEl = document.querySelector('.js-menu')
 const checkEl = document.querySelector('.theme-switch__toggle')
 const body = document.querySelector('body')
 
-const menuMarkup = menu.map((el) => menuTpl(el)).join('')
-
-menuEl.innerHTML = menuMarkup
 
 let themePage = Theme[localStorage.getItem('theme')]
-console.log(localStorage.getItem('theme'))
-console.log(themePage)
 if (themePage) {
   body.classList.add(Theme[localStorage.getItem('theme')])
   if (localStorage.getItem('theme') == 'LIGHT') {
@@ -28,6 +23,10 @@ if (themePage) {
   body.classList.add(Theme[0])
   localStorage.setItem('theme', Theme[0])
 }
+
+const menuMarkup = menu.map((el) => menuTpl(el)).join('')
+menuEl.innerHTML = menuMarkup
+
 
 checkEl.addEventListener('change', setTheme)
 
