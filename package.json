@@ -17,9 +17,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/IrinaShushkevych/goit-js-hw-10-food-service/issues"
-  },
   "homepage": "https://irinashushkevych.github.io/goit-js-hw-10-food-service",
   "devDependencies": {
     "gh-pages": "^3.2.3",
