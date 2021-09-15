@@ -1,14 +1,12 @@
 import menu from './menu.json'
 import menuTpl from './menutpl.hbs'
+import Theme from './theme'
+import {menuEl, checkEl, body} from './refs'
 
-const Theme = {
-  LIGHT: 'light-theme',
-  DARK: 'dark-theme',
-}
-
-const menuEl = document.querySelector('.js-menu')
-const checkEl = document.querySelector('.theme-switch__toggle')
-const body = document.querySelector('body')
+console.log(Theme)
+console.log(menuEl)
+console.log(checkEl)
+console.log(body)
 
 
 let themePage = Theme[localStorage.getItem('theme')]
@@ -28,7 +26,6 @@ const menuMarkup = menu.map((el) => menuTpl(el)).join('')
 menuEl.innerHTML = menuMarkup
 
 
-checkEl.addEventListener('change', setTheme)
 
 function setTheme() {
   if (body.classList.contains('light-theme')) {
@@ -39,3 +36,5 @@ function setTheme() {
     localStorage.setItem('theme', 'LIGHT')
   }
 }
+
+checkEl.addEventListener('change', setTheme)
