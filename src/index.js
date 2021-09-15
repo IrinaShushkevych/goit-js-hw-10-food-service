@@ -1,31 +1,29 @@
 import menu from './menu.json'
 import menuTpl from './menutpl.hbs'
 import Theme from './theme'
-import {menuEl, checkEl, body} from './refs'
+import refs from './refs'
 
-console.log(Theme)
-console.log(menuEl)
-console.log(checkEl)
-console.log(body)
+const {menuEl, checkEl, body} = refs
 
-
-let themePage = Theme[localStorage.getItem('theme')]
-if (themePage) {
-  body.classList.add(Theme[localStorage.getItem('theme')])
-  if (localStorage.getItem('theme') == 'LIGHT') {
-    checkEl.checked = false
+function initThemePage(){
+  let themePage = Theme[localStorage.getItem('theme')]
+  if (themePage) {
+    body.classList.add(Theme[localStorage.getItem('theme')])
+    if (localStorage.getItem('theme') == 'LIGHT') {
+      checkEl.checked = false
+    } else {
+      checkEl.checked = true
+    }
   } else {
-    checkEl.checked = true
+    body.classList.add(Theme[0])
+    localStorage.setItem('theme', Theme[0])
   }
-} else {
-  body.classList.add(Theme[0])
-  localStorage.setItem('theme', Theme[0])
 }
 
-const menuMarkup = menu.map((el) => menuTpl(el)).join('')
-menuEl.innerHTML = menuMarkup
-
-
+function createListItems(){
+  const menuMarkup = menu.map((el) => menuTpl(el)).join('')
+  menuEl.innerHTML = menuMarkup
+}
 
 function setTheme() {
   if (body.classList.contains('light-theme')) {
@@ -37,4 +35,6 @@ function setTheme() {
   }
 }
 
+initThemePage()
+createListItems()
 checkEl.addEventListener('change', setTheme)
