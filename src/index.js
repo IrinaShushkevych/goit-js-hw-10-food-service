@@ -1,7 +1,7 @@
-import menu from './menu.json'
-import menuTpl from './menutpl.hbs'
-import Theme from './theme'
-import refs from './refs'
+import menu from './js/menu.json'
+import menuTpl from './templates/menutpl.hbs'
+import Theme from './js/theme'
+import refs from './js/refs'
 
 const {menuEl, checkEl, body} = refs
 
